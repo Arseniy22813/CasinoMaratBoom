@@ -1,44 +1,35 @@
-<!-- src/components/MaratBoomMenu.vue -->
 <script setup>
 import { RouterLink, useRouter } from 'vue-router'
+import { onMounted, onUnmounted, ref } from 'vue'
 
 const router = useRouter()
 
-// Простая заглушка для авторизации (можно заменить на вашу useAuth позже)
-const isLoggedIn = false
-
-const handleLogout = () => {
-  // Логика выхода
-  router.push('/casino')
+const home = () => {
+  router.push('/')
 }
+
 </script>
 
 <template>
   <header class="marat-menu">
     <div class="menu-container">
-      <div class="logo-area">
+      <div class="logo-area" @click="home">
         <span class="logo-marat">МАРАТ</span>
         <span class="logo-bum">БУМ</span>
       </div>
 
       <nav class="nav-links">
-        <RouterLink to="/casino">ГЛАВНАЯ</RouterLink>
-        <RouterLink to="/casino/games">ИГРЫ</RouterLink>
-        <RouterLink to="/casino/promos">АКЦИИ</RouterLink>
-        <RouterLink to="/casino/tournaments">ТУРНИРЫ</RouterLink>
-        <RouterLink to="/casino/vip">VIP</RouterLink>
-        <RouterLink to="/casino/support">ПОДДЕРЖКА</RouterLink>
+        <RouterLink :to="{ name: 'Error' }">РУЛЕТКА</RouterLink>
+        <RouterLink :to="{ name: 'Error' }">ОРЕЛ РЕШКА</RouterLink>
+        <RouterLink :to="{ name: 'Error' }">МИНЫ</RouterLink>
+        <RouterLink :to="{ name: 'Error' }">БЛЭК ДЖЭК</RouterLink>
       </nav>
 
-      <div class="auth-buttons">
-        <template v-if="!isLoggedIn">
-          <button class="btn-outline" @click="$router.push('/login')">ВХОД</button>
-          <button class="btn-register" @click="$router.push('/register')">РЕГИСТРАЦИЯ</button>
-        </template>
-        <template v-else>
-          <RouterLink to="/profile" class="profile-link">Профиль</RouterLink>
-          <button class="btn-logout" @click="handleLogout">ВЫЙТИ</button>
-        </template>
+      <div class="wallet">
+        <button class="wallet-btn">
+          <span class="wallet-label">Баланс:</span>
+          <span class="wallet-balance">0 ₽</span>
+        </button>
       </div>
     </div>
   </header>
@@ -70,6 +61,7 @@ const handleLogout = () => {
   gap: 0.2rem;
   font-size: 1.8rem;
   font-weight: 800;
+  cursor: pointer;
 }
 
 .logo-marat {
@@ -89,77 +81,49 @@ const handleLogout = () => {
 .nav-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.2rem;
+  gap: 2rem;
 }
 
 .nav-links a {
   text-decoration: none;
   color: #e2ddf5;
   font-weight: 600;
-  transition: 0.2s;
   padding: 0.5rem 0;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid transparent;
 }
 
 .nav-links a:hover,
 .nav-links a.router-link-active {
   color: #FFA451;
-  text-shadow: 0 0 4px #ff8c2e;
-  border-bottom: 2px solid #ff8c2e;
+  border-bottom-color: #ff8c2e;
 }
 
-.auth-buttons {
-  display: flex;
-  gap: 0.8rem;
-  align-items: center;
-}
-
-.btn-outline,
-.btn-register,
-.btn-logout,
-.profile-link {
-  padding: 0.4rem 1.2rem;
-  border-radius: 40px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.2s;
-  text-decoration: none;
-  border: none;
-}
-
-.btn-outline {
-  background: transparent;
-  border: 1.5px solid #ffa45e;
-  color: #ffb46e;
-}
-
-.btn-outline:hover {
-  background: rgba(255, 164, 81, 0.15);
-}
-
-.btn-register {
-  background: linear-gradient(95deg, #FF8C2E, #FF5E00);
-  color: white;
-  box-shadow: 0 2px 8px rgba(255, 80, 0, 0.4);
-}
-
-.btn-register:hover {
-  transform: scale(1.02);
-}
-
-.profile-link {
+.wallet-btn {
   background: rgba(255, 140, 46, 0.2);
-  color: #ffb46e;
   border: 1px solid #ffa45e;
+  padding: 0.5rem 1.2rem;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
 }
 
-.btn-logout {
-  background: rgba(220, 53, 69, 0.2);
-  color: #ff8888;
-  border: 1px solid #ff6666;
+.wallet-btn:hover {
+  background: rgba(255, 140, 46, 0.4);
 }
 
-.btn-logout:hover {
-  background: rgba(220, 53, 69, 0.4);
+.wallet-label {
+  color: #ffb46e;
+  font-size: 0.9rem;
+}
+
+.wallet-balance {
+  color: #ffb46e;
+  font-weight: bold;
+  font-size: 1rem;
 }
 
 @media (max-width: 850px) {
@@ -167,6 +131,7 @@ const handleLogout = () => {
     flex-direction: column;
     padding: 0.8rem 1rem;
   }
+
   .nav-links {
     justify-content: center;
   }

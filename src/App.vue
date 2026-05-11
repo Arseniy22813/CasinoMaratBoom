@@ -1,11 +1,23 @@
-<!-- src/App.vue -->
 <script setup>
 import { RouterView } from 'vue-router'
+import MaratBoomMenu from './components/MaratBoomMenu.vue'
+import Footer from './components/Footer.vue'
+
 </script>
 
 <template>
   <div id="app">
-    <RouterView />
+    <header>
+      <MaratBoomMenu />
+    </header>
+
+    <main class="main-content">
+      <RouterView />
+    </main>
+
+    <footer>
+      <Footer />
+    </footer>
   </div>
 </template>
 
@@ -21,5 +33,19 @@ body {
   background: radial-gradient(circle at 10% 20%, #0f0b1c, #05030a);
   min-height: 100vh;
   color: #f0eef7;
+}
+
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+}
+
+footer {
+  margin-top: auto;
 }
 </style>
