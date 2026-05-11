@@ -75,7 +75,7 @@ const router = useRouter()
             <h3>МИНЫ</h3>
             <p>Найди золото и избегай мин. Чем дальше, тем больше выигрыш!</p>
             <div class="card-footer">
-              <RouterLink :to="{ name: 'Error' }" class="details-btn">
+              <RouterLink :to="{ name: 'MinesGame' }" class="details-btn">
                 Играть →
               </RouterLink>
             </div>
@@ -90,7 +90,7 @@ const router = useRouter()
             <h3>БЛЭК ДЖЭК</h3>
             <p>Собери 21 очко и обыграй дилера. Испытай свою стратегию!</p>
             <div class="card-footer">
-              <RouterLink :to="{ name: 'Error' }" class="details-btn">
+              <RouterLink :to="{ name: 'BlackjackGame' }" class="details-btn">
                 Играть →
               </RouterLink>
             </div>
@@ -163,10 +163,16 @@ const router = useRouter()
   font-size: 3rem;
   font-weight: 800;
   margin-bottom: 0.5rem;
+  background: linear-gradient(135deg, #FFB347, #FF4A00);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  line-height: 1.2;
+  padding: 0.2rem 0;
 }
 
 .banner-text h1 span {
-  background: linear-gradient(135deg, #FFB347, #FF4A00);
+  background: linear-gradient(135deg, #FFD966, #FF8C00);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -391,6 +397,7 @@ const router = useRouter()
 @media (max-width: 768px) {
   .banner-text h1 {
     font-size: 2rem;
+    line-height: 1.3;
   }
 
   .section-header h2 {

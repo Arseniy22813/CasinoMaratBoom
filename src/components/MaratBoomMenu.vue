@@ -40,7 +40,7 @@ onMounted(() => {
         <RouterLink :to="{ name: 'RouletteGame' }">РУЛЕТКА</RouterLink>
         <RouterLink :to="{ name: 'CoinFlipGame' }">ОРЕЛ РЕШКА</RouterLink>
         <RouterLink :to="{ name: 'MinesGame' }">МИНЫ</RouterLink>
-        <RouterLink :to="{ name: 'Error' }">БЛЭК ДЖЭК</RouterLink>
+        <RouterLink :to="{ name: 'BlackjackGame' }">БЛЭК ДЖЭК</RouterLink>
       </nav>
 
       <div class="wallet">
