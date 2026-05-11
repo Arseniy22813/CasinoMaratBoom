@@ -45,7 +45,7 @@ const router = useRouter()
             <h3>РУЛЕТКА</h3>
             <p>Классическая европейская рулетка. Ставь на цвета, числа и сектора!</p>
             <div class="card-footer">
-              <RouterLink :to="{ name: 'Error' }" class="details-btn">
+              <RouterLink :to="{ name: 'RouletteGame' }" class="details-btn">
                 Играть →
               </RouterLink>
             </div>
@@ -60,7 +60,7 @@ const router = useRouter()
             <h3>ОРЕЛ РЕШКА</h3>
             <p>Простая игра на удачу. Угадай сторону монетки и удвой ставку!</p>
             <div class="card-footer">
-              <RouterLink :to="{ name: 'Error' }" class="details-btn">
+              <RouterLink :to="{ name: 'CoinFlipGame' }" class="details-btn">
                 Играть →
               </RouterLink>
             </div>
@@ -124,7 +124,7 @@ const router = useRouter()
       <div class="cta-content">
         <h3>ГОТОВ КРУТИТЬ?</h3>
         <p>Присоединяйся к тысячам игроков и выигрывай реальные деньги</p>
-        <RouterLink :to="{ name: 'Error' }" class="cta-btn">НАЧАТЬ ИГРУ</RouterLink>
+        <RouterLink :to="{ name: 'RouletteGame' }" class="cta-btn">НАЧАТЬ ИГРУ</RouterLink>
       </div>
     </section>
   </div>

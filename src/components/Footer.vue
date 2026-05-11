@@ -14,10 +14,10 @@ import { ref } from 'vue'
                             <RouterLink :to="{ name: 'Error' }">МИНЫ</RouterLink>
                         </li>
                         <li>
-                            <RouterLink :to="{ name: 'Error' }">РУЛЕТКА</RouterLink>
+                            <RouterLink :to="{ name: 'RouletteGame' }">РУЛЕТКА</RouterLink>
                         </li>
                         <li>
-                            <RouterLink :to="{ name: 'Error' }">ОРЕЛ РЕШКА</RouterLink>
+                            <RouterLink :to="{ name: 'CoinFlipGame' }">ОРЕЛ РЕШКА</RouterLink>
                         </li>
                         <li>
                             <RouterLink :to="{ name: 'Error' }">БЛЭК ДЖЭК</RouterLink>

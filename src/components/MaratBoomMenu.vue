@@ -1,13 +1,31 @@
 <script setup>
 import { RouterLink, useRouter } from 'vue-router'
 import { onMounted, onUnmounted, ref } from 'vue'
+import useWallet from '../composables/useWallet'
 
 const router = useRouter()
+const { balance, onBalanceChange } = useWallet()
+const localBalance = ref(balance.value)
 
 const home = () => {
   router.push('/')
 }
 
+const goToBalance = () => {
+  router.push('/balance')
+}
+
+const handleBalanceUpdate = (event) => {
+  setBalance(event.detail)
+}
+
+onMounted(() => {
+  const handler = (newBalance) => {
+    localBalance.value = newBalance
+  }
+  onBalanceChange(handler)
+  localBalance.value = balance.value
+})
 </script>
 
 <template>
@@ -19,14 +37,14 @@ const home = () => {
       </div>
 
       <nav class="nav-links">
-        <RouterLink :to="{ name: 'Error' }">РУЛЕТКА</RouterLink>
-        <RouterLink :to="{ name: 'Error' }">ОРЕЛ РЕШКА</RouterLink>
+        <RouterLink :to="{ name: 'RouletteGame' }">РУЛЕТКА</RouterLink>
+        <RouterLink :to="{ name: 'CoinFlipGame' }">ОРЕЛ РЕШКА</RouterLink>
         <RouterLink :to="{ name: 'Error' }">МИНЫ</RouterLink>
         <RouterLink :to="{ name: 'Error' }">БЛЭК ДЖЭК</RouterLink>
       </nav>
 
       <div class="wallet">
-        <button class="wallet-btn">
+        <button class="wallet-btn" @click="goToBalance">
           <span class="wallet-label">Баланс:</span>
           <span class="wallet-balance">0 ₽</span>
         </button>
