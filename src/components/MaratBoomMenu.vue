@@ -39,14 +39,14 @@ onMounted(() => {
       <nav class="nav-links">
         <RouterLink :to="{ name: 'RouletteGame' }">РУЛЕТКА</RouterLink>
         <RouterLink :to="{ name: 'CoinFlipGame' }">ОРЕЛ РЕШКА</RouterLink>
-        <RouterLink :to="{ name: 'Error' }">МИНЫ</RouterLink>
+        <RouterLink :to="{ name: 'MinesGame' }">МИНЫ</RouterLink>
         <RouterLink :to="{ name: 'Error' }">БЛЭК ДЖЭК</RouterLink>
       </nav>
 
       <div class="wallet">
         <button class="wallet-btn" @click="goToBalance">
           <span class="wallet-label">Баланс:</span>
-          <span class="wallet-balance">0 ₽</span>
+          <span class="wallet-balance">{{ localBalance.toLocaleString() }} ₽</span>
         </button>
       </div>
     </div>
